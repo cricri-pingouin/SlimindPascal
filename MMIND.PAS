@@ -41,7 +41,7 @@ begin
  DetectGraph(Driver,Mode);
  if (Driver<>VGA) or (Mode<>VGAHi) then
  begin
-   Writeln(' Ce programme n‚cessite un ‚cran VGA');
+   Writeln(' Ce programme nÃ©cessite un Ã©cran VGA');
    Write(' en mode 640x480, 16 couleurs.');
    repeat until keypressed;
    halt;
@@ -64,27 +64,27 @@ TextBackGround(blue);
 TextColor(LightGreen);
 ClrScr;
 Curseur(False);
-Writeln('Master Mind, programm‚ en juillet 19xx.');
+Writeln('Master Mind, programmâ€š en juillet 199x.');
 Writeln('Ce jeu est un FREEWARE.');
 Writeln;
 TextColor(Yellow);
-Writeln('RŠgle du jeu : le but est de retrouver la combinaison cach‚e compos‚e de');
-Writeln('plusieurs colonnes, chacune correspondant … un pion d''une couleur.');
+Writeln('RÃ¨gle du jeu : le but est de retrouver la combinaison cachÃ©e composÃ©e de');
+Writeln('plusieurs colonnes, chacune correspondant Ã  un pion d''une couleur.');
 Writeln;
 Writeln('Comment jouer :');
-Writeln('* Choisissez le nombre de colonnes de la combinaison cach‚e, ainsi que le');
+Writeln('* Choisissez le nombre de colonnes de la combinaison cachÃ©e, ainsi que le');
 Writeln('  nombre de couleurs possibles (une couleur peut intervenir plusieurs fois).');
-Writeln('* Choisissez la colonne … modifier avec les touches 4 et 6 du pav‚ num‚rique,');
+Writeln('* Choisissez la colonne Ã  modifier avec les touches 4 et 6 du pavÃ© numÃ©rique,');
 Writeln('  ou les touches gauche et droite du curseur.');
-Writeln('* Choisissez alors la couleur du pion avec les touches 2 et 8 du pav‚');
-Writeln('  num‚rique, ou les touches Bas et Haut du curseur.');
+Writeln('* Choisissez alors la couleur du pion avec les touches 2 et 8 du pavÃ©');
+Writeln('  numÃ©rique, ou les touches Bas et Haut du curseur.');
 Writeln('* Quand toutes les colonnes ont un pion (il ne peut pas y avoir de colonne');
-Writeln('  vide), appuyez sur Entr‚e pour valider la ligne.');
+Writeln('  vide), appuyez sur EntrÃ©e pour valider la ligne.');
 Writeln('* Les petits pions noirs sur la droite indiquent les pions de votre proposition');
-Writeln('  bien plac‚s, les blancs indiquent les couleurs existantes mais mal plac‚es');
+Writeln('  bien placÃ©s, les blancs indiquent les couleurs existantes mais mal placÃ©es');
 Writeln('  La position des pions noirs et blancs ne correspond pas avec celle');
 Writeln('  des pions de couleurs de votre suggestion.');
-Writeln('* Si vous trouvez avant les 14 essais, vous avez gagn‚ (sinon...).');
+Writeln('* Si vous trouvez avant les 14 essais, vous avez gagnÃ© (sinon...).');
 Writeln('* Si vous en avez marre avant la fin, quittez avec Esc.');
 TextColor(Green);
 Writeln;
@@ -128,15 +128,15 @@ Begin
   pl:=0;
   pr:=0;
   temp:=cache;
-{ Recherche des pions bien plac‚s }
+{ Recherche des pions bien placâ€šs }
   For i:=1 to col do
     if joueur[i]=temp[i] then
       begin
         inc(pl);
-        joueur[i]:=0; { On efface les pions pour ne pas les compter plac‚s }
+        joueur[i]:=0; { On efface les pions pour ne pas les compter placÃ©s }
         temp[i]:=0;
       end;
-{ Recherche des pions pr‚sents mal plac‚s }
+{ Recherche des pions prÃ©sents mal placÃ©s }
   For i:=1 to col do
     For j:=1 to col do
       if (joueur[i]=temp[j]) and (joueur[i]<>0) then
@@ -145,7 +145,7 @@ Begin
           temp[j]:=0;
           j:=col;
         end;
-{ Mise en place des pions r‚sultat }
+{ Mise en place des pions rÃ©sultat }
   setcolor(darkgray);
   if pl>0 then
     for i:=1 to pl do
@@ -170,9 +170,9 @@ Begin
 end;
 
 BEGIN { Programme Principal }
-{ Initialisation systŠme graphique }
+{ Initialisation systÃªme graphique }
  Init_graph;
-{ Ecran de pr‚sentation et demande des paramŠtres }
+{ Ecran de prÃ©sentation et demande des paramÃ¨tres }
  ClearViewPort;
  vide_buffer_clavier;
  settextstyle(triplexfont,horizdir,6);
@@ -211,7 +211,7 @@ BEGIN { Programme Principal }
  val(touche,coul,i);
  OutTextXY(550,300,touche);
  clearviewport;
-{ Tirage al‚atoire de la combinaison cach‚e }
+{ Tirage alÃ©atoire de la combinaison cachÃ©e }
  randomize;
  For i:=1 to col do cache[i]:=random(coul)+1;
 { Initialisation des variables }
@@ -230,7 +230,7 @@ BEGIN { Programme Principal }
  for i:=1 to col do joueur[i]:=0;
  i:=1;
  cadre(i,coup,white);
-{ D‚but du jeu }
+{ DÃ©but du jeu }
  repeat
    ok:=false;
    repeat until keypressed;
@@ -282,7 +282,7 @@ BEGIN { Programme Principal }
  SetFillStyle(1,white);
  FloodFill(400,220,lightblue);
  if (coup=1) then OutTextXY(400,207, 'Bouuuh : perdu !!')
-             else OutTextXY(400,207,'Vous avez gagn‚ !');
+             else OutTextXY(400,207,'Vous avez gagnÃ© !');
  vide_buffer_clavier;
  repeat until keypressed;
  CloseGraph;
