@@ -64,7 +64,7 @@ TextBackGround(blue);
 TextColor(LightGreen);
 ClrScr;
 Curseur(False);
-Writeln('Master Mind, programm‚ en juillet 199x.');
+Writeln('Master Mind, programmé en juillet 199x.');
 Writeln('Ce jeu est un FREEWARE.');
 Writeln;
 TextColor(Yellow);
